@@ -25,6 +25,7 @@ function Movies() {
     useEffect(() => {
         dispatch(upcoming())
         setActive()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
       
     return (
