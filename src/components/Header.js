@@ -1,21 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { DebounceInput } from 'react-debounce-input';
 import { Link } from 'react-router-dom'
+import $ from 'jquery'
 
 function Header(props) {
    const [sideBar, setSideBar]=useState('closed')
+
+
+
+   function setActive(){
+    $('.listLink').on('click',function() {
+        $('.listLink.activa').removeClass("activa");
+        $(this).addClass("activa");
+    });
+ }
    const openCloseMenu = () => {
-    let ul = document.querySelector('.topnav')
       if(sideBar === 'closed'){
-      ul.classList.add('response');
+        $('.topnav').addClass('response')
      setSideBar('open')
       }else{
-        ul.classList.remove('response');
+        $('.topnav').removeClass('response')
         setSideBar('closed')
       }
   }
     return (
-        <header className="header">
         <div className="wrapper" id="wrap">
         <nav className="navigation">
           <div className="menu"><i className="fa fa-bars" onClick={openCloseMenu}/></div>
@@ -23,8 +31,8 @@ function Header(props) {
             <h1>Trend<span>Hub</span></h1>
           </div>
           <ul className="topnav" id="nav">
-          <li><Link to="/">Movies</Link></li>
-          <li><Link to="/Series">Series</Link></li>
+          <li className="listItem"><Link to="/Movies" className="listLink activa" onClick={setActive}>Movies</Link></li>
+          <li className="listItem"><Link to="/Series" className="listLink" onClick={setActive}>Series</Link></li>
               <li>
                 <DebounceInput
                 element="input" 
@@ -37,7 +45,6 @@ function Header(props) {
           </ul>
         </nav>
       </div>
-    </header>
     )
 }
 

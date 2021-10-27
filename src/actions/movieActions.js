@@ -58,12 +58,13 @@ export const nowPlaying = () => dispatch => {
 }
 
 export const searchMovies = (query) => dispatch => {
+    console.log(query)
 const url = `${api}/search/movie?api_key=${apiKey}&query=${query}`
 
 if(query === ''){
     dispatch(upcoming())
   }else{
-    $('.list .active').removeClass('active');
+    $('.lost .active').removeClass('active');
 
 fetch(url)
 .then(response => response.json())

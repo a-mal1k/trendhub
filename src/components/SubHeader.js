@@ -1,16 +1,33 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import $ from 'jquery'
 
 function SubHeader(props) {
+
+   const handleClick = () =>{
+       $('.lost').toggleClass('list').slideToggle()
+   }
+   useEffect(() => {
+       setActive()
+   }, []);
+   
+ function setActive(){
+    $('.listItem').on('click',function() {
+        $('.listItem.active').removeClass("active");
+        $(this).addClass("active");
+    });
+ }
+   
+
     return (
         <section className="subheader">
+            <button className="btn btn-outline-light m-2" onClick={handleClick}><i className="fa fa-greater-than"></i></button>
             <div className="genre-container">
-                <ul className="list">
-                    <div className="suggestion"><h4><i className="fa fa-greater-than text-dark"></i></h4></div>
-                    <li className="" onClick={(event) => props.upcoming(event.target.value)}>Upcoming</li>
-                <li className="" onClick={(event) => props.nowPlaying(event.target.value)}>Cinema</li>
-                <li className="" onClick={(event) => props.mostPopular(event.target.value)}>Popular</li>
-                <li className="" onClick={(event) => props.kidsPopular(event.target.value)}>Kids</li>
-                <li className="" onClick={(event) => props.topRated(event.target.value)}>Top Rated</li>
+                <ul className="lost">
+                <li className="listItem active"onClick={(event) => props.upcoming(event.target.value)}>Upcoming</li>
+                <li className="listItem"onClick={(event) => props.nowPlaying(event.target.value)}>Cinema</li>
+                <li className="listItem"onClick={(event) => props.mostPopular(event.target.value)}>Popular</li>
+                <li className="listItem"onClick={(event) => props.kidsPopular(event.target.value)}>Kids</li>
+                <li className="listItem"onClick={(event) => props.topRated(event.target.value)}>Top Rated</li>
                 </ul>
             </div>
         </section>
