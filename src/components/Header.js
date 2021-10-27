@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { DebounceInput } from 'react-debounce-input';
 import { Link } from 'react-router-dom'
 import $ from 'jquery'

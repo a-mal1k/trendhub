@@ -1,10 +1,10 @@
 import React, {useEffect} from 'react'
 
-import Header from './Header';
+import Header from '../Header';
 import SubHeader from './SubHeader';
 import MovieContainer from './MovieContainer'
 import {useSelector, useDispatch} from 'react-redux'
-import {mostPopular, upcoming, topRated, kidsPopular, nowPlaying, searchMovies} from '../actions/movieActions'
+import {mostPopular, upcoming, topRated, kidsPopular, nowPlaying, searchMovies} from '../../actions/movieActions'
 
 function Movies() {
     const movies = useSelector(state=>state.movies.searchedMovies);

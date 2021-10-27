@@ -194,7 +194,7 @@ li a {
   width:50vh;
   height:70vh;
   padding:2px 3px;
-  margin:5px;
+  margin:6px;
  background-color:rgb(43,42,45);
   display:flex;
   justify-content: center;
@@ -206,7 +206,7 @@ li a {
 }
 .movie-item:hover{
   box-shadow: 0 0 4px rgb(22, 233, 180), 0 0 6px rgb(44, 223, 193);
- 
+  transform: scale(1.1);
 }
 .text-container{
   display:flex;
@@ -255,8 +255,8 @@ font-weight:normal;
     flex-wrap: wrap;
   }
   .movie-item{
-    width:195px;
-    height:295px;
+    width:180px;
+    height:280px;
   }
 }
 @media(min-width:2140px){

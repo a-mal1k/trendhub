@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
 import { Route, Switch, Link } from 'react-router-dom'
-import Movies from './components/Movies'
-import MovieInfo from './components/MovieInfo'
+import Movies from './components/movieContainer/Movies'
+import MovieInfo from './components/movieContainer/MovieInfo'
 import { Provider } from 'react-redux'
 import store from './store'
-import Series from './components/Series';
+import Series from './components/seriesContainer/Series';
+import ShowInfo from './components/seriesContainer/ShowInfo'
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
           <Route exact path="/" component={Movies} />
           <Route exact path="/Movies" component={Movies} />
           <Route path="/MovieInfo" component={MovieInfo} />
+          <Route path="/ShowInfo" component={ShowInfo} />
           <Route path="/Series" component={Series} />
 
         </Switch>
