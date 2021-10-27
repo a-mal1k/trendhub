@@ -22,7 +22,7 @@ function Movies() {
       
     return (
         <div>
-        <Header searchData={()=>dispatch(searchMovies())}/>
+        <Header searchData={(query)=>dispatch(searchMovies(query))}/>
             <SubHeader 
                 mostPopular={()=>dispatch(mostPopular())}
                 upcoming={()=>dispatch(upcoming())}
