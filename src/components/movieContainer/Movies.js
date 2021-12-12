@@ -31,7 +31,7 @@ function Movies() {
                 nowPlaying={()=>dispatch(nowPlaying())}
             />
         <MovieContainer movies={movies} setPage={setFetchMovies}/>
-
+    
     </div>
     )
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import Header from '../Header';
+import Fallback from '../Fallback';
 const api = 'https://api.themoviedb.org/3'
 const apiKey = '6c75544a6c3ee0c12e06c0346584513d'
 
@@ -39,15 +39,16 @@ function MovieInfo() {
                     console.log(info)
                     mov.push(info)
                     setMovieState(mov)
-                    console.log(movieState)
+                    console.log(movieState[0])
                 })
             }).catch(err => {
                 console.log("Eror while fetching data")
             })
-    }, []);
-
+    }, [movieState,url]);
+   
     let poster, title, name, tagline, overview, genres, companies, release, background, runtime, status, homepage, rating, startSeries, episodeRuntime
-    movieState.map((info) => (
+   
+    movieState.map((info) =>(
         title = info.title,
         name = info.name,
         tagline = info.tagline,
@@ -69,6 +70,9 @@ function MovieInfo() {
         poster = `https://image.tmdb.org/t/p/w500${info.poster}`
     ))
     const styles = { width: '100%', backgroundImage: background ? (`url(${background})`) : null }
+    if(movieState.length<1){
+        return <Fallback />
+    } else{
     return (
         <div>
             <section style={styles} className="infoSection ">
@@ -76,7 +80,7 @@ function MovieInfo() {
                     <div className="container-box">
                         <div className="infoBox">
                             <div className="poster">
-                                <img src={poster} />
+                                <img src={poster} alt={tagline}/>
                             </div>
                             <div className="info">
                                 <div className="movie-name"><h1>{title}{name}</h1></div>
@@ -116,7 +120,7 @@ function MovieInfo() {
                                 <div className="links">
                                     <div className="li"><Link className="link" to="/">Movies</Link></div>
                                     <div className="li"><Link className="link" to="/TvShows" >Tv Shows</Link></div>
-                                    <div className="li"><a className="link" href={homepage} target="_blank">View More Details</a></div>
+                                    <div className="li"><a className="link" href={homepage} target="_blank" rel="noreferrer">View More Details</a></div>
                                 </div>
                             </div>
 
@@ -127,6 +131,7 @@ function MovieInfo() {
         </div>
 
     )
+    }
 }
 
 export default MovieInfo
