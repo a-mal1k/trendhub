@@ -6,7 +6,7 @@ import $ from 'jquery'
 function Header(props) {
    const [sideBar, setSideBar]=useState('closed')
 
-
+  
 
    function setActive(){
     $('.listLink').on('click',function() {
@@ -31,8 +31,8 @@ function Header(props) {
             <h1>Trend<span>Hub</span></h1>
           </div>
           <ul className="topnav" id="nav">
-          <li className="listItem"><Link to="/Movies" className="listLink activa" onClick={setActive}>Movies</Link></li>
-          <li className="listItem"><Link to="/Series" className="listLink" onClick={setActive}>Series</Link></li>
+          <li className="list"><Link to="/Movies" className="listLink activa" onClick={setActive}>Movies</Link></li>
+          <li className="list"><Link to="/Series" className="listLink" onClick={setActive}>Series</Link></li>
               <li>
                 <DebounceInput
                 element="input" 

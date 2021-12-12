@@ -93,7 +93,16 @@
           padding: 1.2em 0.5em; 
         } 
     }
-  
+ #spinner {
+   margin: 0 auto;
+   margin-top: 50px;
+   width: max-content;
+   border-radius: 10px;
+   justify-content: center;
+   padding: 50px;
+   border: 2px inset cyan;
+   box-shadow: 1px 2px 0px;
+ }
 li a {
     color: white;
     font-family: 'Orbitron', sans-serif;
@@ -206,7 +215,7 @@ li a {
 }
 .movie-item:hover{
   box-shadow: 0 0 4px rgb(22, 233, 180), 0 0 6px rgb(44, 223, 193);
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 .text-container{
   display:flex;
@@ -344,7 +353,7 @@ color:white;
 font-size:2.5em;
 }
 .overview h2{
-color:orange;
+color:rgb(21, 158, 151);
 font-family: "Oswald";
 font-weight: normal;
 }
@@ -353,7 +362,7 @@ color:white;
 font-size:1em;
 }
 .genres-companies h2{
-color:orange;
+color:rgb(21, 158, 151);
 font-family: "Oswald";
 font-weight: normal;
 }
@@ -370,7 +379,7 @@ font-weight: normal;
 margin:0;
 }
 .details h2{
-color:orange;
+color:rgb(21, 158, 151);
 font-family: "Oswald";
 font-weight: normal;
 margin:0;
@@ -400,7 +409,7 @@ letter-spacing: 1px;
 
 .link:hover{
 color:black;
-background-color:orange;
+background-color:rgb(21, 158, 151);
 transition:0.2s;
 }
 
@@ -445,6 +454,121 @@ transition:0.2s;
   width:1470px;
 }
 }
+/*INfo Section*/
+.infoSection{
+  background-repeat: no-repeat;
+  background-size:cover;
+}
+.infoBox{
+  display:flex;
+  box-sizing:border-box;
+  background-color:rgba(0,0,0,0.7);
+  flex-wrap:wrap;
+  justify-content: space-between;
+  margin:1em;
+  border-radius:5px;
+}
+
+.outer-container {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.85) 10%, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 0.95) 90%);
+  background-attachment: fixed;
+  margin:0;
+  height: 100%;
+  width:100%;
+  display:flex;
+  justify-content: center;
+  align-items:center
+}
+
+.poster img{
+ height:100%;
+ width:100%;
+}
+
+.info{
+  padding:2em 0.5em;
+}
+
+
+.detail-container{
+  display:flex;
+  flex-direction:row;
+  justify-content: space-between;
+  width:90%;
+}
+
+.column{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+
+.movie-name h1{
+  margin:0;
+  text-transform: uppercase;
+  color:white;
+  font-size:2.5em;
+}
+.overview h2{
+  color:rgb(21, 158, 151);
+  font-family: "Oswald";
+  font-weight: normal;
+}
+.overview p{
+  color:white;
+  font-size:1em;
+}
+.genres-companies h2{
+  color:rgb(21, 158, 151);
+  font-family: "Oswald";
+  font-weight: normal;
+}
+.genres-companies p{
+  color:white;
+}
+.details{
+  margin-bottom:10px;
+}
+.details h3{
+  color:white;
+  font-family: "Oswald";
+  font-weight: normal;
+  margin:0;
+}
+.details h2{
+  color:rgb(21, 158, 151);
+  font-family: "Oswald";
+  font-weight: normal;
+  margin:0;
+}
+
+.links{
+  display:flex;
+  cursor: pointer;
+}
+.li{
+  list-style-type:none;
+  background-color:rgba(80,80,80,0.5);
+  margin:16px 10px 16px 0;
+  padding:14px 0;
+}
+.link{
+  box-sizing: border-box;
+  padding:15px 15px;
+  text-decoration: none;
+  color:white;
+  font-size:14px;
+  font-family: "Oswald";
+  letter-spacing: 1px;
+}
+
+.link:hover{
+  color:black;
+  background-color:rgb(21, 158, 151);
+  transition:0.2s;
+}
+
 
 /* footer */
 .footer{
