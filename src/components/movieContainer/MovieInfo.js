@@ -1,55 +1,61 @@
-import React, { useState, useEffect } from 'react'
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Fallback from '../Fallback';
 const api = 'https://api.themoviedb.org/3'
 const apiKey = '6c75544a6c3ee0c12e06c0346584513d'
 
-function MovieInfo() {
-    const [movieState, setMovieState] = useState([]);
-    let movieId = sessionStorage.getItem('movieId');
-    let page = sessionStorage.getItem('Page');
-    let url = `${api}/${page}/${movieId}?api_key=${apiKey}`
-    useEffect(() => {
-        let mov = movieState
-        fetch(url)
-            .then((response) => {
-                response.json().then((data) => {
-                    let info;
-                    if (response.status === 200) {
-                        info = {
-                            tagline: data.tagline,
-                            poster: data.poster_path,
-                            genres: data.genres,
-                            title: data.title,
-                            name: data.name,
-                            status: data.status,
-                            overview: data.overview,
-                            rating: data.vote_average,
-                            companies: data.production_companies,
-                            release: data.release_date,
-                            startSeries: data.first_air_date,
-                            background: data.backdrop_path,
-                            runtime: data.runtime,
-                            episodeRuntime: data.episode_run_time,
-                            homepage: data.homepage
-                        }
-                    } else {
-                        info = { name: "Sorry couldn't retrieve any data" }
-                    }
+class MovieInfo extends Component{
+    
+    state = {
+        movieInfo:[]
+    }
+
+    componentDidMount(){
+        const {movieInfo} = this.state
+        let movieId = sessionStorage.getItem('movieId');
+        let page = sessionStorage.getItem('Page');
+         let url
+         url = `${api}/${page}/${movieId}?api_key=${apiKey}&append_to_response=credits`
+        
+         fetch(url)
+         .then((response) => {
+             response.json().then((data) => {
+             let info
+             if (response.status === 200) {
                 
-                    mov.push(info)
-                    setMovieState(mov)
-                    console.log(movieState[0])
-                })
-            }).catch(err => {
-                console.log("Eror while fetching data")
-            })
-    }, [movieState,url]);
-    if(movieState<1){
-        return <Fallback />
-    } else{
+             info = {
+                tagline: data.tagline,
+                poster: data.poster_path,
+                genres: data.genres,
+                title: data.title,
+                name:data.name,
+                status: data.status,
+                overview: data.overview,
+                rating: data.vote_average,
+                companies: data.production_companies,
+                release: data.release_date,
+                startSeries: data.first_air_date,
+                background: data.backdrop_path,
+                runtime: data.runtime,
+                episodeRuntime: data.episode_run_time,
+                homepage: data.homepage
+             }
+            }else{
+                info={name: "Sorry couldn't retrieve any data"}
+            }
+             movieInfo.push(info)
+             this.setState({movieInfo})
+         })
+        })
+    }
+        render(){
+            const {movieInfo} = this.state
+        
+        if(movieInfo.length<1){
+            return <Fallback/>
+        } else{
         return (
-       movieState.map((info, id) =>{
+            movieInfo.map((info, id) =>{
            return (
         <div key={id}>
             <section style={{ width: '100%', backgroundImage: `url(${`https://image.tmdb.org/t/p/original${info.background}`})` }} className="infoSection ">
@@ -109,6 +115,7 @@ function MovieInfo() {
            )
     })
     )
+}
 
     }
 }
