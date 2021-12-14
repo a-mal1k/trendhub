@@ -50,12 +50,11 @@ class MovieInfo extends Component{
     }
         render(){
             const {movieInfo} = this.state
-        
         if(movieInfo.length<1){
             return <Fallback/>
         } else{
         return (
-            movieInfo.map((info, id) =>{
+        movieInfo.map((info, id) =>{
            return (
         <div key={id}>
             <section style={{ width: '100%', backgroundImage: `url(${`https://image.tmdb.org/t/p/original${info.background}`})` }} className="infoSection ">
@@ -114,10 +113,9 @@ class MovieInfo extends Component{
         </div>
            )
     })
-    )
+    )   
 }
-
-    }
+}
 }
 
 export default MovieInfo

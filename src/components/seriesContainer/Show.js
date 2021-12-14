@@ -13,7 +13,7 @@ function Show(props) {
     const styles = { width: '100%', height: '100%', backgroundImage: poster ? (`url(${poster})`) : null }
     return (
         <div>
-            <Link to="/MovieInfo" className="infoLink">
+            <Link to="/ShowInfo" className="infoLink">
                 <div className="movie-item" onClick={(event) => { showSelected(show.id); props.setPage() }} >
                     <div className="movie-cover" style={styles}>
                         <div><h6 className="badge bg-light text-dark">{show.vote_average}{' '}<span className={(Math.floor(show.vote_average)<=5)?"text-danger":"text-primary"}><i className="fas fa-star"></i></span></h6></div>
