@@ -100,8 +100,8 @@ class ShowInfo extends Component{
                                     </div>
                                 </div>
                                 <div className="links">
-                                    <div className="li"><Link className="link" to="/">Movies</Link></div>
-                                    <div className="li"><Link className="link" to="/TvShows" >Tv Shows</Link></div>
+                                    <div className="li"><Link className="link" to="/Movies">Movies</Link></div>
+                                    <div className="li"><Link className="link" to="/Series" >Web Series</Link></div>
                                     <div className="li"><a className="link" href={info.homepage} target="_blank" rel="noreferrer">View More Details</a></div>
                                 </div>
                             </div>
